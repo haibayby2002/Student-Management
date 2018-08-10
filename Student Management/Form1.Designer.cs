@@ -30,14 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.dgvHocSinh = new System.Windows.Forms.DataGridView();
-            this.MaSo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmbKhoi = new System.Windows.Forms.ComboBox();
             this.lblKhoi = new System.Windows.Forms.Label();
             this.lblLop = new System.Windows.Forms.Label();
             this.cmbLop = new System.Windows.Forms.ComboBox();
             this.grbLoc = new System.Windows.Forms.GroupBox();
+            this.MaSo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaLop = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHocSinh)).BeginInit();
             this.grbLoc.SuspendLayout();
             this.SuspendLayout();
@@ -57,30 +57,9 @@
             this.dgvHocSinh.Location = new System.Drawing.Point(12, 130);
             this.dgvHocSinh.Name = "dgvHocSinh";
             this.dgvHocSinh.ReadOnly = true;
+            this.dgvHocSinh.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHocSinh.Size = new System.Drawing.Size(868, 280);
             this.dgvHocSinh.TabIndex = 0;
-            // 
-            // MaSo
-            // 
-            this.MaSo.DataPropertyName = "MaHocSinh";
-            this.MaSo.HeaderText = "Mã số";
-            this.MaSo.Name = "MaSo";
-            this.MaSo.ReadOnly = true;
-            // 
-            // HoTen
-            // 
-            this.HoTen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.HoTen.DataPropertyName = "HoTen";
-            this.HoTen.HeaderText = "Họ tên";
-            this.HoTen.Name = "HoTen";
-            this.HoTen.ReadOnly = true;
-            // 
-            // MaLop
-            // 
-            this.MaLop.DataPropertyName = "MaLop";
-            this.MaLop.HeaderText = "Lớp";
-            this.MaLop.Name = "MaLop";
-            this.MaLop.ReadOnly = true;
             // 
             // cmbKhoi
             // 
@@ -95,6 +74,7 @@
             this.cmbKhoi.Name = "cmbKhoi";
             this.cmbKhoi.Size = new System.Drawing.Size(121, 28);
             this.cmbKhoi.TabIndex = 1;
+            this.cmbKhoi.SelectedValueChanged += new System.EventHandler(this.cmbKhoi_SelectedValueChanged);
             // 
             // lblKhoi
             // 
@@ -122,6 +102,7 @@
             this.cmbLop.Name = "cmbLop";
             this.cmbLop.Size = new System.Drawing.Size(121, 28);
             this.cmbLop.TabIndex = 4;
+            this.cmbLop.SelectedIndexChanged += new System.EventHandler(this.cmbLop_SelectedIndexChanged);
             // 
             // grbLoc
             // 
@@ -136,6 +117,28 @@
             this.grbLoc.TabStop = false;
             this.grbLoc.Text = "Lọc";
             // 
+            // MaSo
+            // 
+            this.MaSo.DataPropertyName = "MaHocSinh";
+            this.MaSo.HeaderText = "Mã số";
+            this.MaSo.Name = "MaSo";
+            this.MaSo.ReadOnly = true;
+            // 
+            // HoTen
+            // 
+            this.HoTen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.HoTen.DataPropertyName = "TenHocSinh";
+            this.HoTen.HeaderText = "Họ tên";
+            this.HoTen.Name = "HoTen";
+            this.HoTen.ReadOnly = true;
+            // 
+            // MaLop
+            // 
+            this.MaLop.DataPropertyName = "MaLop";
+            this.MaLop.HeaderText = "Lớp";
+            this.MaLop.Name = "MaLop";
+            this.MaLop.ReadOnly = true;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -145,10 +148,12 @@
             this.Controls.Add(this.dgvHocSinh);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Student Management";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMain_FormClosed);
+            this.Load += new System.EventHandler(this.frmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHocSinh)).EndInit();
             this.grbLoc.ResumeLayout(false);
             this.grbLoc.PerformLayout();
@@ -159,14 +164,14 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvHocSinh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaSo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HoTen;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaLop;
         private System.Windows.Forms.ComboBox cmbKhoi;
         private System.Windows.Forms.Label lblKhoi;
         private System.Windows.Forms.Label lblLop;
         private System.Windows.Forms.ComboBox cmbLop;
         private System.Windows.Forms.GroupBox grbLoc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaSo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HoTen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaLop;
     }
 }
 
